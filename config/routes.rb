@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  get "main" => "main#index"
+  get "main" => "main#index", as: "main"
 
-  get "users/signup" => "user#new"
+  get "users/signup" => "users#new", as: "signup"
+  post "users" => "users#create"
 
-  post "users" => "user#create"
+  get "signin" => "sessions#new", as: "signin"
+  post "signin" => "sessions#create", as: "signin_create"
+
+  delete "logout" => "sessions#destroy", as: "logout"
 
   # Defines the root path route ("/")
   # root "posts#index"

@@ -1,1 +1,8 @@
 <h1>Main loaded</h1>
+
+<% if Current.user %>
+    <h3>Logged in as <%= Current.user.name%></h3>
+    <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+<%else%>
+    <h3>You are not logged in</h3>
+<%end%>

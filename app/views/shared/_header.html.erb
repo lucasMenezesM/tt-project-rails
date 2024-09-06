@@ -1,0 +1,14 @@
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><%= link_to "Home", main_path, class: "nav-link" %></li>
+
+        <% if Current.user %>
+          <%= button_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+        <%else%>
+          <li class="nav-item"><%= link_to "Sign up", signup_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign in", signin_path, class: "nav-link" %></li>
+        <%end%>
+      </ul>
+    </header>
+  </div>
